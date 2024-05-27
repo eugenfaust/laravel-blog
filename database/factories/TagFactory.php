@@ -10,14 +10,13 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class PostFactory extends Factory
+class TagFactory extends Factory
 {
 
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(),
-            'content' => fake()->text(10000),
+            'title' => fake()->word(),
         ];
     }
 
