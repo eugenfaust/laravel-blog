@@ -1,6 +1,6 @@
 @extends('templates/main')
 @section('content')
-    <form action={{ route('posts.create') }} method="post" class="w-full max-w-lg flex flex-col gap-2">
+    <form action={{ route('posts/store') }} method="post" class="w-full max-w-lg flex flex-col gap-2">
         @csrf
         @method('PUT')
         @error('title')

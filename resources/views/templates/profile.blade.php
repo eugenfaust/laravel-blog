@@ -37,7 +37,21 @@
             </div>
         </form>
     @else
-        <span>Hello, {{ explode('@', auth()->user()->email)[0] }}!</span>
-        <a href="{{ route('logout') }}" type="button" class="border p-1">Log Out</a>
+        <div class="flex flex-col justify-between h-96">
+            <div class="flex flex-col gap-2">
+                <span class="inline-flex self-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    {{ explode('@', auth()->user()->email)[0] }}</span>
+                <a href="{{ route('posts/create') }}" class="p-1 border-2 border-green-500">Create post</a>
+                <a href="{{ route('user', ['user' => auth()->user()->id]) }}" class="p-1 border-2 border-green-500">My
+                    profile</a>
+            </div>
+
+            <a href="{{ route('logout') }}" type="button" class="border-2 p-1 border-red-500">Log Out</a>
+        </div>
+
     @endunless
     </dv>

@@ -6,11 +6,12 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
+class MainController extends Controller
 {
     
-    public function create() {
-        return view('posts/create');
+    public function index() {
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        return view('index', compact('posts'));
     }
 
     public function store(Request $request) {
